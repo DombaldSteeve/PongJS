@@ -15,12 +15,9 @@ let lastTime
 function update(time) {
     if (lastTime != null) {
         const delta = time - lastTime;
-        Ball.update(delta);
+        Ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
         computerPaddle.update(delta, Ball.y)
-
-        // if (isLose()) handleLose()
-
-        
+        if (isLose()) handleLose()       
     }
     
     lastTime = time;
@@ -39,7 +36,7 @@ function handleLose() {
     } else {
         computerScoreElem.textContent = parseInt(computerScoreElem.textContent) + 1
     }
-    ball.reset()
+    Ball.reset()
     computerPaddle.reset()
 }
 

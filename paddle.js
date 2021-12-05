@@ -11,6 +11,11 @@ export default class paddle {
         return parseFloat(getComputedStyle(this.paddleElem).getPropertyValue("--position"))
     }
 
+    
+    rect() {
+        return this.paddleElem.getBoundingClientRect()
+    }
+
     set position(value) {
         this.paddleElem.style.setProperty("--position", value)
     }
